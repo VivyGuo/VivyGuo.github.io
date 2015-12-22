@@ -21,7 +21,7 @@
 （2）NSURLRequest：封装一个请求，保存发给服务器的全部数据，包括一个NSURL对象，请求方法、请求头、请求体….
 （3）NSMutableURLRequest：NSURLRequest的子类
 （4）NSURLConnection：负责发送请求，建立客户端和服务器的连接。发送NSURLRe">
-<meta property="og:updated_time" content="2015-12-22T15:45:52.000Z">
+<meta property="og:updated_time" content="2015-12-22T15:48:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NSURLConnection">
 <meta name="twitter:description" content="原文链接
@@ -112,7 +112,7 @@
 <p>（2）传入NSURL创建一个NSURLRequest对象，设置请求头和请求体（创建请求对象）</p>
 <p>（3）使用NSURLConnection发送NSURLRequest（发送请求）</p>
 <p>2.代码示例</p>
-<p>（1）发送请求的三个步骤：<br>1.设置请求路径<br>2.创建请求对象<br>3.发送请求<br>3.1发送同步请求（一直在等待服务器返回数据，这行代码会卡住，如果服务器，没有返回数据，那么在主线程UI会卡住不能继续执行操作）有返回值<br>3.2发送异步请求：没有返回值<br>说明：任何NSURLRequest默认都是get请求。<br>（2）发送同步请求：<br><code>ObjectiveC
+<p>（1）发送请求的三个步骤：<br>1.设置请求路径<br>2.创建请求对象<br>3.发送请求<br>3.1发送同步请求（一直在等待服务器返回数据，这行代码会卡住，如果服务器，没有返回数据，那么在主线程UI会卡住不能继续执行操作）有返回值<br>3.2发送异步请求：没有返回值<br>说明：任何NSURLRequest默认都是get请求。<br>（2）发送同步请求：<br><code>objc
 //iOS9.0已弃用
 [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
 //1.设置请求路径
@@ -124,7 +124,7 @@ NSURLRequest *request=[NSURLRequest requestWithURL:url];
 //发送同步请求，在主线程执行
 NSData *data=[NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
 //（一直在等待服务器返回数据，这行代码会卡住，如果服务器没有返回数据，那么在主线程UI会卡住不能继续执行操作）
-NSLog(@&quot;--%d--&quot;,data.length);</code> ObjectiveC<br>（3）发送异步请求<br>1）使用block回调<br>2）代理</p>
+NSLog(@&quot;--%d--&quot;,data.length);</code> objc<br>（3）发送异步请求<br>1）使用block回调<br>2）代理</p>
 
       
     </div>
