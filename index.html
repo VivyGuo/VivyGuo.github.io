@@ -98,19 +98,9 @@
 <p>（2）传入NSURL创建一个NSURLRequest对象，设置请求头和请求体（创建请求对象）</p>
 <p>（3）使用NSURLConnection发送NSURLRequest（发送请求）</p>
 <p>2.代码示例</p>
-<p>（1）发送请求的三个步骤：<br>1.设置请求路径<br>2.创建请求对象<br>3.发送请求<br>3.1发送同步请求（一直在等待服务器返回数据，这行代码会卡住，如果服务器，没有返回数据，那么在主线程UI会卡住不能继续执行操作）有返回值<br>3.2发送异步请求：没有返回值<br>说明：任何NSURLRequest默认都是get请求。<br>（2）发送同步请求：<br><code>java
-//iOS9.0已弃用
-[NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-//1.设置请求路径
-NSString *urlStr=[NSString stringWithFormat:@&quot;http://192.168.1.53:8080/MJServer/login?username=%@&amp;pwd=%@&quot;,self.username.text,self.pwd.text];
-NSURL *url=[NSURL URLWithString:urlStr];
-//2.创建请求对象
-NSURLRequest *request=[NSURLRequest requestWithURL:url];
-//3.发送请求
-//发送同步请求，在主线程执行
-NSData *data=[NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-//（一直在等待服务器返回数据，这行代码会卡住，如果服务器没有返回数据，那么在主线程UI会卡住不能继续执行操作）
-NSLog(@&quot;--%d--&quot;,data.length);</code>java<br>（3）发送异步请求<br>1）使用block回调<br>2）代理</p>
+<p>（1）发送请求的三个步骤：<br>1.设置请求路径<br>2.创建请求对象<br>3.发送请求<br>3.1发送同步请求（一直在等待服务器返回数据，这行代码会卡住，如果服务器，没有返回数据，那么在主线程UI会卡住不能继续执行操作）有返回值<br>3.2发送异步请求：没有返回值<br>说明：任何NSURLRequest默认都是get请求。<br>（2）发送同步请求：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//iOS9.0已弃用</span></span><br><span class="line">[<span class="built_in">NSURLConnection</span> sendSynchronousRequest:request returningResponse:<span class="literal">nil</span> error:<span class="literal">nil</span>];</span><br><span class="line"><span class="comment">//1.设置请求路径</span></span><br><span class="line"><span class="built_in">NSString</span> *urlStr=[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"http://192.168.1.53:8080/MJServer/login?username=%@&amp;pwd=%@"</span>,<span class="keyword">self</span><span class="variable">.username</span><span class="variable">.text</span>,<span class="keyword">self</span><span class="variable">.pwd</span><span class="variable">.text</span>];</span><br><span class="line"><span class="built_in">NSURL</span> *url=[<span class="built_in">NSURL</span> URLWithString:urlStr];</span><br><span class="line"><span class="comment">//2.创建请求对象</span></span><br><span class="line"><span class="built_in">NSURLRequest</span> *request=[<span class="built_in">NSURLRequest</span> requestWithURL:url];</span><br><span class="line"><span class="comment">//3.发送请求</span></span><br><span class="line"><span class="comment">//发送同步请求，在主线程执行</span></span><br><span class="line"><span class="built_in">NSData</span> *data=[<span class="built_in">NSURLConnection</span> sendSynchronousRequest:request returningResponse:<span class="literal">nil</span> error:<span class="literal">nil</span>];</span><br><span class="line"><span class="comment">//（一直在等待服务器返回数据，这行代码会卡住，如果服务器没有返回数据，那么在主线程UI会卡住不能继续执行操作）</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"--%d--"</span>,data<span class="variable">.length</span>);</span><br></pre></td></tr></table></figure>
+<p>（3）发送异步请求<br>1）使用block回调<br>2）代理</p>
 
       
     </div>
