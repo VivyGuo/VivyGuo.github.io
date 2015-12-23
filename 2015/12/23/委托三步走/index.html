@@ -6,19 +6,30 @@
   <title>委托三步走 | Vivy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="OC通过协议(protocol)可以实现多继承，协议最常用途是委托模式(Delegate pattern)。
-委托模式是实现对象间通信，传递数据的方式之一。此模式可以将数据与业务逻辑解耦。如显示一系列数据的视图，此视图应只包含显示数据所需的逻辑代码，不应决定要显示何种数据以及数据之间如何交互，而通过协议来实现，这种模式就是委托模式，一般将处理数据的协议称为”数据源”(data source)，将处">
+委托模式是实现对象间通信，传递数据的方式之一，此模式可以将数据与业务逻辑解耦。
+如显示一系列数据的视图，此视图应只包含显示数据所需的逻辑代码，不应决定要显示何种数据以及数据之间如何交互。
+这些将通过协议来实现，利于解耦，这种模式就是委托模式。
+一般将处理数据和处理事件的协议称为数据源(da">
 <meta property="og:type" content="article">
 <meta property="og:title" content="委托三步走">
 <meta property="og:url" content="http://vivyguo.github.io/2015/12/23/委托三步走/index.html">
 <meta property="og:site_name" content="Vivy">
 <meta property="og:description" content="OC通过协议(protocol)可以实现多继承，协议最常用途是委托模式(Delegate pattern)。
-委托模式是实现对象间通信，传递数据的方式之一。此模式可以将数据与业务逻辑解耦。如显示一系列数据的视图，此视图应只包含显示数据所需的逻辑代码，不应决定要显示何种数据以及数据之间如何交互，而通过协议来实现，这种模式就是委托模式，一般将处理数据的协议称为”数据源”(data source)，将处">
-<meta property="og:image" content="http://vivyguo.github.io/hexo/source/img/delegate1.png">
-<meta property="og:updated_time" content="2015-12-23T15:50:02.000Z">
+委托模式是实现对象间通信，传递数据的方式之一，此模式可以将数据与业务逻辑解耦。
+如显示一系列数据的视图，此视图应只包含显示数据所需的逻辑代码，不应决定要显示何种数据以及数据之间如何交互。
+这些将通过协议来实现，利于解耦，这种模式就是委托模式。
+一般将处理数据和处理事件的协议称为数据源(da">
+<meta property="og:image" content="http://vivyguo.github.io/img/delegate1.png">
+<meta property="og:image" content="http://vivyguo.github.io/img/delegate2.png">
+<meta property="og:image" content="http://vivyguo.github.io/img/delegate3.png">
+<meta property="og:updated_time" content="2015-12-23T16:00:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="委托三步走">
 <meta name="twitter:description" content="OC通过协议(protocol)可以实现多继承，协议最常用途是委托模式(Delegate pattern)。
-委托模式是实现对象间通信，传递数据的方式之一。此模式可以将数据与业务逻辑解耦。如显示一系列数据的视图，此视图应只包含显示数据所需的逻辑代码，不应决定要显示何种数据以及数据之间如何交互，而通过协议来实现，这种模式就是委托模式，一般将处理数据的协议称为”数据源”(data source)，将处">
+委托模式是实现对象间通信，传递数据的方式之一，此模式可以将数据与业务逻辑解耦。
+如显示一系列数据的视图，此视图应只包含显示数据所需的逻辑代码，不应决定要显示何种数据以及数据之间如何交互。
+这些将通过协议来实现，利于解耦，这种模式就是委托模式。
+一般将处理数据和处理事件的协议称为数据源(da">
   
   
     <link rel="icon" href="/favicon.png">
@@ -91,8 +102,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <pre><code>OC通过协议(protocol)可以实现多继承，协议最常用途是委托模式(Delegate pattern)。
-委托模式是实现对象间通信，传递数据的方式之一。此模式可以将数据与业务逻辑解耦。如显示一系列数据的视图，此视图应只包含显示数据所需的逻辑代码，不应决定要显示何种数据以及数据之间如何交互，而通过协议来实现，这种模式就是委托模式，一般将处理数据的协议称为”数据源”(data source)，将处理事件的协议称为”委托(delegate)”。 
-</code></pre><p>委托模式三步走：<br>1.建立委托协议。通常命名方式是委托对象类名+DataSource或者Delegate<br>2.委托对象中包含委托协议类型的属性，使用该属性(即调用委托协议方法)。弱类型，避免强引用循环<br>3.在遵循该委托协议的类中，1)设置委托对象的协议属性 2)实现协议方法<br><img src="hexo/source/img/delegate1.png" alt="delegate1"></p>
+委托模式是实现对象间通信，传递数据的方式之一，此模式可以将数据与业务逻辑解耦。
+如显示一系列数据的视图，此视图应只包含显示数据所需的逻辑代码，不应决定要显示何种数据以及数据之间如何交互。
+这些将通过协议来实现，利于解耦，这种模式就是委托模式。
+一般将处理数据和处理事件的协议称为数据源(data source)和委托(delegate)。 
+</code></pre><p>委托模式建立步骤：<br>1.建立委托协议。通常命名方式是委托对象类名+DataSource或者Delegate</p>
+<p>2.委托对象中包含委托协议类型的属性，使用该属性(即调用委托协议方法)。弱类型，避免强引用循环</p>
+<p>3.在遵循该委托协议的类中，1)设置委托对象的协议属性 2)实现协议方法</p>
+<p><img src="/img/delegate1.png" alt="delegate1"><br><img src="/img/delegate2.png" alt="delegate2"><br><img src="/img/delegate3.png" alt="delegate3"></p>
 
       
     </div>
