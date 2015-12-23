@@ -8,7 +8,7 @@
   <meta name="description" content="Vivy&apos;s blog">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Vivy">
-<meta property="og:url" content="/index.html">
+<meta property="og:url" content="http://vivyguo.github.io/index.html">
 <meta property="og:site_name" content="Vivy">
 <meta property="og:description" content="Vivy&apos;s blog">
 <meta name="twitter:card" content="summary">
@@ -53,7 +53,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value=""></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://vivyguo.github.io"></form>
       </div>
     </div>
   </div>
@@ -61,9 +61,52 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-初始Block" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-委托三步走" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/12/23/初始Block/" class="article-date">
+    <a href="/2015/12/23/委托三步走/" class="article-date">
+  <time datetime="2015-12-23T15:32:16.000Z" itemprop="datePublished">2015-12-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/23/委托三步走/">委托三步走</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>OC通过协议(protocol)可以实现多继承，协议最常用途是委托模式(Delegate pattern)。
+委托模式是实现对象间通信，传递数据的方式之一。此模式可以将数据与业务逻辑解耦。如显示一系列数据的视图，此视图应只包含显示数据所需的逻辑代码，不应决定要显示何种数据以及数据之间如何交互，而通过协议来实现，这种模式就是委托模式，一般将处理数据的协议称为”数据源”(data source)，将处理事件的协议称为”委托(delegate)”。 
+</code></pre><p>委托模式三步走：<br>1.建立委托协议。通常命名方式是委托对象类名+DataSource或者Delegate<br>2.委托对象中包含委托协议类型的属性，使用该属性(即调用委托协议方法)。弱类型，避免强引用循环<br>3.在遵循该委托协议的类中，1)设置委托对象的协议属性 2)实现协议方法<br><img src="hexo/source/img/delegate1.png" alt="delegate1"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://vivyguo.github.io/2015/12/23/委托三步走/" data-id="ciiizyhc000030p3zot3kv5yr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-初识Block" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/12/23/初识Block/" class="article-date">
   <time datetime="2015-12-23T15:18:42.000Z" itemprop="datePublished">2015-12-23</time>
 </a>
     
@@ -79,7 +122,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/23/初始Block/">初识Block</a>
+      <a class="article-title" href="/2015/12/23/初识Block/">初识Block</a>
     </h1>
   
 
@@ -92,14 +135,14 @@
 <p>定义一个名为addBlock的变量，需要两个参数。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> (^someBlock)() = ^&#123;</span><br><span class="line"><span class="comment">//the block of code</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>Block无参数时，可以省略括号^{}.<br>2）创建块类型typedef<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span>  <span class="keyword">int</span>  (^EOCSomeBlock) (<span class="built_in">BOOL</span> flag, <span class="keyword">int</span> value);</span><br></pre></td></tr></table></figure></p>
 <p>创建了一个名为EOCSomeBlock的类型<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">EOCSomeBlock   block =  ^(<span class="built_in">BOOL</span> flag  , <span class="keyword">int</span>  value )&#123;</span><br><span class="line"><span class="comment">//some code </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>定义一个EOCSomeBlock类型的变量block<br>3）<strong>block 修饰读写变量<br>block块内部可以获取在其声明范围的变量，但是只能读不能写。声明变量的时候加上</strong>block修饰，就可以在块内修改该变量了。block代码分配在栈上，__block 将变量分配到堆上。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//简写,相当于[NSArray arrayWithObjects:[NSNumber numberWithInt:3],[NSNumber numberWithInt:5], nil];</span></span><br><span class="line"><span class="built_in">NSArray</span> *array = @[@<span class="number">3</span>,@<span class="number">5</span>,@<span class="number">6</span>,@<span class="number">8</span>,@<span class="number">13</span>];</span><br><span class="line">__block <span class="built_in">NSInteger</span> count = <span class="number">0</span>;</span><br><span class="line"><span class="comment">//NSArray 枚举数组中每项</span></span><br><span class="line">[array enumerateObjectsUsingBlock:^(<span class="built_in">NSNumber</span> *number, <span class="built_in">NSUInteger</span> idx,<span class="built_in">BOOL</span> *stop)&#123;</span><br><span class="line"><span class="keyword">if</span> ([number compare:@<span class="number">2</span>] == <span class="built_in">NSOrderedAscending</span>) &#123;</span><br><span class="line">count++;</span><br><span class="line">&#125;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure></p>
+<p>定义一个EOCSomeBlock类型的变量block<br>3）<strong>block 修饰可读写变量<br>block块内部可以获取在其声明范围的变量，但是只能读不能写。声明变量的时候加上</strong>block修饰，就可以在块内修改该变量了。block代码分配在栈上，__block 将变量分配到堆上。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//简写,相当于[NSArray arrayWithObjects:[NSNumber numberWithInt:3],[NSNumber numberWithInt:5], nil];</span></span><br><span class="line"><span class="built_in">NSArray</span> *array = @[@<span class="number">3</span>,@<span class="number">5</span>,@<span class="number">6</span>,@<span class="number">8</span>,@<span class="number">13</span>];</span><br><span class="line">__block <span class="built_in">NSInteger</span> count = <span class="number">0</span>;</span><br><span class="line"><span class="comment">//NSArray 枚举数组中每项</span></span><br><span class="line">[array enumerateObjectsUsingBlock:^(<span class="built_in">NSNumber</span> *number, <span class="built_in">NSUInteger</span> idx,<span class="built_in">BOOL</span> *stop)&#123;</span><br><span class="line"><span class="keyword">if</span> ([number compare:@<span class="number">2</span>] == <span class="built_in">NSOrderedAscending</span>) &#123;</span><br><span class="line">count++;</span><br><span class="line">&#125;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure></p>
 <p>4）<strong>weak 避免引用循环<br>将块定义在类的实例方法中，块内可以访问类的所有实例变量，还可以使用self变量。<br>在内存分配管理中，会有一个强指针指向block ,而block内部的self本身也有一个强指针指向block，就造成了强引用循环，双方都不能释放。<br>使用</strong>weak创建弱引用变量，该变量指向的对象，当没有指针指向时，会设置为nil ，避免了引用环(retain cycle)<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">__<span class="keyword">weak</span> MyClass *weakSelf = <span class="keyword">self</span>;</span><br><span class="line">[<span class="keyword">self</span><span class="variable">.myBlocks</span> addObject:^ &#123;</span><br><span class="line">[weakSelf doSomething];</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure></p>
 <h3 id="2-_u4F7F_u7528_u573A_u666F"><a href="#2-_u4F7F_u7528_u573A_u666F" class="headerlink" title="2.使用场景"></a>2.使用场景</h3><p>1）枚举（数组，字典枚举每项）,视图动画，排序<br>2）通知Notification<br>3）错误处理<br>4）多线程GCD（重要功能）<br>5）代替委托(delegate)功能</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="/2015/12/23/初始Block/" data-id="ciiiz2dbn0000pv3zxjwd7ahk" class="article-share-link">Share</a>
+      <a data-url="http://vivyguo.github.io/2015/12/23/初识Block/" data-id="ciiizyhc500060p3z1ykeqz2t" class="article-share-link">Share</a>
       
       
     </footer>
@@ -154,7 +197,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="/2015/12/22/NSURLConnection/" data-id="ciiiz0w4i0004o23z386ske8u" class="article-share-link">Share</a>
+      <a data-url="http://vivyguo.github.io/2015/12/22/NSURLConnection/" data-id="ciiizyhce00090p3zqv9ip13u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -195,7 +238,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="/2015/12/19/Hexo搭建blog/" data-id="ciiiz0w3l0000o23z4kzyihxa" class="article-share-link">Share</a>
+      <a data-url="http://vivyguo.github.io/2015/12/19/Hexo搭建blog/" data-id="ciiizyhbk00000p3z6k2d2faq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -240,7 +283,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="/2015/12/19/hello-world/" data-id="ciiiz0w4e0003o23zd64uy1xk" class="article-share-link">Share</a>
+      <a data-url="http://vivyguo.github.io/2015/12/19/hello-world/" data-id="ciiizyhcb00080p3zue32t758" class="article-share-link">Share</a>
       
       
     </footer>
@@ -259,7 +302,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -272,7 +315,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">4</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -284,7 +327,11 @@
       <ul>
         
           <li>
-            <a href="/2015/12/23/初始Block/">初识Block</a>
+            <a href="/2015/12/23/委托三步走/">委托三步走</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/23/初识Block/">初识Block</a>
           </li>
         
           <li>
